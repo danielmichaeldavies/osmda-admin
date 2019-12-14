@@ -30,6 +30,13 @@ module OsmdaAdmin
     # the framework and any gems in your application.
 
     # Don't generate system test files.
-    config.generators.system_tests = nil
+    # config.generators.system_tests = nil
+
+    # Don't generate helpers and assets
+    config.generators do |g|
+      g.helper false
+      g.assets false
+      g.test_framework :rspec
+    end
   end
 end
