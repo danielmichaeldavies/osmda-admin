@@ -1,0 +1,4 @@
+en:
+  users:
+    sessions:
+      fail: Invalid email or password.

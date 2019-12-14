@@ -1,0 +1,3 @@
+en:
+  resources:
+    not_found: %{resource} could not be found.
