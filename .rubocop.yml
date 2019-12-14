@@ -1,0 +1,48 @@
+require: rubocop-rspec
+
+AllCops:
+  TargetRubyVersion: 2.6
+  Exclude:
+    - db/schema.rb
+    - db/migrate/*
+    - bin/**/*
+    - tmp/**/*
+    - '**/*.haml'
+    - 'node_modules/**/*'
+
+Rails:
+  Enabled: true
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - Rakefile
+    - '**/*.rake'
+    - spec/**/*.rb
+
+Metrics/LineLength:
+  Max: 120
+  Exclude:
+    - Rakefile
+    - '**/*.rake'
+    - spec/**/*.rb
+
+Metrics/MethodLength:
+  CountComments: false  # count full line comments?
+  Max: 20
+  Exclude:
+    - libs/tasks/*/**.rake
+
+Naming/RescuedExceptionsVariableName:
+  PreferredName: 'error' # Default is 'e'
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false

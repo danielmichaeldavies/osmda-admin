@@ -29,3 +29,6 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Override .gitignore_global for some project specific files
+!/.rubocop.yml
