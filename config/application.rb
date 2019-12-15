@@ -38,5 +38,9 @@ module OsmdaAdmin
       g.assets false
       g.test_framework :rspec
     end
+
+    # Standard `schema.rb` doesn't allow Postgres custome types, used in enums.
+    # Change to a schema format that does.
+    config.active_record.schema_format = :sql
   end
 end

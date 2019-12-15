@@ -32,3 +32,4 @@ yarn-debug.log*
 
 # Override .gitignore_global for some project specific files
 !/.rubocop.yml
+!/db/structure.sql
