@@ -17,6 +17,12 @@ class Users::SessionsController < ApplicationController
     end
   end
 
+  def destroy
+    sign_out
+
+    redirect_to root_path
+  end
+
   private
 
   def render_record_error(text)

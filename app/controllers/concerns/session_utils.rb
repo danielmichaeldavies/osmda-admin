@@ -34,8 +34,8 @@ module SessionUtils
     @current_user = user
   end
 
-  def sign_out(user)
-    user&.update_column(:authentication_token, nil)
+  def sign_out
+    current_user&.update_column(:authentication_token, nil)
 
     session.delete(:user_id)
     session.delete(:authentication_token)

@@ -7,7 +7,7 @@ RSpec.describe Users::SessionsController, type: :controller do
     it { expect(get(:new)).to render_template(:new) }
   end
 
-  fdescribe 'POST #create' do
+  describe 'POST #create' do
     context 'with valid details' do
       before do
         post :create, params: { user: { email: user.email, password: user.password } }
@@ -40,6 +40,39 @@ RSpec.describe Users::SessionsController, type: :controller do
       it 'doesnt generate the user an authentication token' do
         expect(user.reload.authentication_token).to be_nil
       end
+    end
+  end
+
+  describe 'delete #destroy' do
+    context 'when successful' do
+      before do
+        user.ensure_authentication_token!
+
+        delete :destroy, session: { user_id: user.id,
+                                    authentication_token: user.authentication_token }
+      end
+
+      it 'redirects to the root path' do
+        expect(response).to redirect_to(root_path)
+      end
+
+      it 'nullifies the users authentication token' do
+        expect(user.reload.authentication_token).to be_nil
+      end
+
+      it 'removes user_id from the users session' do
+        expect(session[:user_id]).to be_nil
+      end
+
+      it 'removes authentication_token from the users session' do
+        expect(session[:authentication_token]).to be_nil
+      end
+    end
+
+    it 'does not error when user is not logged in' do
+      delete :destroy
+
+      expect(response).to redirect_to(root_path)
     end
   end
 end
