@@ -1,3 +1,3 @@
 en:
   resources:
-    not_found: %{resource} could not be found.
+    not_found: '%{resource} could not be found.'
