@@ -30,6 +30,9 @@
 yarn-debug.log*
 .yarn-integrity
 
+# SimpleCov test coverage files
+/coverage
+
 # Override .gitignore_global for some project specific files
 !/.rubocop.yml
 !/db/structure.sql
