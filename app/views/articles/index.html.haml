@@ -1,0 +1,15 @@
+%h2 Articles Index
+
+%table
+  %thead
+    %tr
+      %th ID
+
+  %tbody
+    - @articles.each do
+      %tr
+        %td= article.id
+
+    - if @articles.empty?
+      %tr
+        %td No Articles to show.
