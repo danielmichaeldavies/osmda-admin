@@ -20,4 +20,16 @@ RSpec.describe ArticlesController, type: :controller do
       it { expect(get(:index)).to redirect_to(login_path) }
     end
   end
+
+  describe 'GET #new' do
+    before { user_login }
+
+    it { expect(get(:new)).to render_template(:new) }
+
+    it 'instantiates an empty article' do
+      get :new
+
+      expect(assigns(:article).attributes).to eq(Article.new.attributes)
+    end
+  end
 end

@@ -1,0 +1,6 @@
+= form_with model: @article do |f|
+  = f.text_field :name
+  = f.select :risk, Article.risks.keys.map { |risk| [risk.titleize, risk] }
+  = f.text_area :description
+
+  = f.submit
