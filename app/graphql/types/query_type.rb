@@ -1,13 +1,22 @@
 module Types
   class QueryType < Types::BaseObject
-    # Add root-level fields here.
-    # They will be entry points for queries on your schema.
+    field :article, ArticleType, null: true do
+      description 'Find an Article by ID.'
+      argument :id, ID, required: true
+    end
 
-    # TODO: remove me
-    field :test_field, String, null: false,
-      description: "An example field added by the generator"
-    def test_field
-      "Hello World!"
+    field :articles, [ArticleType], null: true do
+      description 'Index of Articles'
+    end
+
+    private
+
+    def articles
+      Article.all
+    end
+
+    def article(id:)
+      Article.find(id)
     end
   end
 end
