@@ -1,0 +1,6 @@
+%tr{ id: "article-#{article.id}" }
+  %td= article.id
+  %td= article.name
+  %td= article.description
+  %td= article.risk.titleize
+  %td= link_to 'Delete', article, method: :delete, remote: true

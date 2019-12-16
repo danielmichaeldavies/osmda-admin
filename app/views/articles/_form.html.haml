@@ -1,6 +1,8 @@
 = form_with model: @article do |f|
-  = f.text_field :name
+  = render 'shared/form_base_errors', f: f
+
+  = f.text_field :name, placeholder: 'Name'
+  = f.text_area :description, placeholder: 'Description'
   = f.select :risk, Article.risks.keys.map { |risk| [risk.titleize, risk] }
-  = f.text_area :description
 
   = f.submit

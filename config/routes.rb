@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'articles#index'
 
-  resources :articles, only: %i[index new]
+  resources :articles, only: %i[index new create destroy]
 
   namespace :users do
     resources :sessions, only: %i[create destroy]

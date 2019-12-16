@@ -6,12 +6,15 @@
   %thead
     %tr
       %th ID
+      %th Name
+      %th Description
+      %th Risk
+      %th
 
   %tbody
-    - @articles.each do
-      %tr
-        %td= article.id
+    - if @articles.any?
+      = render @articles
 
-    - if @articles.empty?
+    - else
       %tr
         %td No Articles to show.
