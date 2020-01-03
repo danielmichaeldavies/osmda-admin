@@ -42,5 +42,12 @@ module OsmdaAdmin
     # Standard `schema.rb` doesn't allow Postgres custome types, used in enums.
     # Change to a schema format that does.
     config.active_record.schema_format = :sql
+
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: %i[get post options]
+      end
+    end
   end
 end

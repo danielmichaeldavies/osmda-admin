@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'articles#index'
 
-  post 'graphql', to: 'graphql#execute'
+  match 'graphql', to: 'graphql#execute', via: %i[get post]
 
   resources :articles, only: %i[index new create destroy]
 
