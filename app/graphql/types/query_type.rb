@@ -5,16 +5,16 @@ module Types
     end
 
     field :article, ArticleType, null: true do
-      description 'Find an Article by ID.'
-      argument :id, ID, required: true
+      description 'Find an Article by Name.'
+      argument :name, String, required: true
     end
 
     def articles
       Article.all
     end
 
-    def article(id:)
-      Article.find(id)
+    def article(name:)
+      Article.find_by(name: name)
     end
   end
 end
