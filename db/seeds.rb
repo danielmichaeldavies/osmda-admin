@@ -3,4 +3,12 @@
 #
 return if Rails.env.test?
 
+print "Seeding #{Rails.env} database"
+
 User.create(email: 'me@danmdavies.com', password: Rails.application.credentials.seed_user_password)
+
+Article.create!(name: 'Test Article', risk: Article.risks.keys.first)
+
+Article.risks.keys.each do |risk|
+  Article.create!(name: "Article with #{risk} risk", risk: risk)
+end
