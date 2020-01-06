@@ -32,7 +32,12 @@ rescue ActiveRecord::PendingMigrationError => error
   puts error.to_s.strip
   exit 1
 end
+
 RSpec.configure do |config|
+  %i[request model].each do |type|
+    config.include RequestHelpers, type: type
+  end
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   # config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

@@ -3,7 +3,9 @@
 
 # Adds coverage statistics for the test suite. See /coverage/index.html
 require 'simplecov'
-SimpleCov.start 'rails'
+SimpleCov.start 'rails' do
+  add_filter '/app/graphql'
+end
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
